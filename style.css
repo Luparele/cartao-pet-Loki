@@ -1,0 +1,300 @@
+/* style.css */
+
+/* Variáveis de Cores */
+:root {
+    --primary-color: #8BC34A; /* Verde Pet / Natureza - Para destaques e botões */
+    --secondary-color: #689F38; /* Verde Mais Escuro - Para elementos interativos */
+    --background-light: #F1F8E9; /* Fundo Levemente Esverdeado/Creme */
+    --background-dark: #DCEDC8; /* Fundo Um Pouco Mais Escuro */
+    --text-color-dark: #333333; /* Texto Principal Escuro */
+    --text-color-light: #666666; /* Texto Secundário / Detalhes */
+    --border-color: #C5E1A5; /* Cor de Borda Suave */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Sombra Leve */
+}
+
+/* Reset Básico e Fontes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-color-dark);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinha ao topo para evitar espaçamento em telas maiores */
+    min-height: 100vh; /* Garante que o corpo ocupe pelo menos a altura da tela */
+    padding: 20px 0; /* Espaçamento superior e inferior para conteúdo não colar nas bordas */
+}
+
+/* Container Principal */
+.container {
+    width: 100%;
+    max-width: 400px; /* Largura máxima para simular um "cartão" em mobile */
+    background-color: #FFFFFF; /* Fundo branco sólido */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    overflow: hidden; /* Garante que a foto do pet arredondada não "escape" */
+    margin: 0 15px; /* Margem lateral para não colar nas bordas da tela */
+    /* REMOVIDO: opacity: 0.2; A transparência generalizada causava o problema */
+}
+
+/* Cabeçalho do Pet */
+.pet-header {
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    padding: 30px 20px 80px; /* Mais padding embaixo para a foto sobrepor */
+    text-align: center;
+    position: relative;
+    /* Se a intenção era ter a transparência aqui, você pode adicionar um rgba() à cor de fundo, mas isso afetará o texto e será menos legível. */
+    /* Exemplo: background-color: rgba(139, 195, 74, 0.8); */
+}
+
+.pet-header h1 {
+    font-size: 1.8em;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.pet-tagline {
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+.pet-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Foto circular */
+    border: 6px solid #FFFFFF; /* Borda branca forte para destacar */
+    object-fit: cover; /* Garante que a imagem preencha o círculo */
+    position: absolute;
+    bottom: -75px; /* Metade da altura da imagem para centralizar sobre o fundo */
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra mais escura para dar profundidade */
+    z-index: 10; /* Garante que a foto esteja acima de outros elementos se houver sobreposição */
+    /* Adicionando um pequeno ajuste para imagens que possam parecer muito "submersas" */
+    display: block; /* Para garantir que as propriedades de box-model funcionem corretamente */
+}
+
+/* Seções de Informação */
+.info-section {
+    padding: 80px 20px 20px; /* Padding superior para compensar a foto */
+    background-color: #FFFFFF;
+    border-bottom: 1px solid var(--border-color);
+    position: relative; /* Para o padding superior funcionar bem */
+}
+
+.info-section:first-of-type {
+    padding-top: 90px; /* Ajuste para a primeira seção após o cabeçalho */
+}
+
+.info-section h2 {
+    font-size: 1.4em;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.info-section h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 5px auto 0;
+    border-radius: 5px;
+}
+
+.info-item {
+    background-color: var(--background-light);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-item h3 {
+    font-size: 1.1em;
+    color: var(--text-color-dark);
+    margin-bottom: 8px;
+}
+
+p {
+    font-size: 0.95em;
+    margin-bottom: 5px;
+    color: var(--text-color-light);
+}
+
+strong {
+    color: var(--text-color-dark);
+}
+
+/* Links e Botões */
+.whatsapp-link, .phone-link {
+    display: inline-flex; /* Para alinhar ícone e texto */
+    align-items: center;
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    padding: 10px 15px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9em;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.whatsapp-link:hover, .phone-link:hover {
+    background-color: var(--secondary-color);
+}
+
+.whatsapp-link i, .phone-link i {
+    margin-right: 8px;
+    font-size: 1.1em;
+}
+
+.phone-number {
+    display: block; /* Quebra de linha para o número abaixo do botão */
+    font-size: 0.85em;
+    color: var(--text-color-light);
+    margin-top: 5px;
+}
+
+/* Localização */
+.address-text {
+    text-align: center;
+    font-size: 1em;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--text-color-dark);
+}
+
+.address-complement {
+    text-align: center;
+    font-size: 0.85em;
+    margin-bottom: 15px;
+}
+
+.map-container {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.map-container iframe {
+    display: block; /* Remove espaçamento extra abaixo do iframe */
+    border-radius: 10px; /* Aplica borda no iframe também */
+    width: 100%; /* Garante que o iframe ocupe toda a largura disponível */
+    height: 250px; /* Altura padrão para o mapa, pode ajustar se necessário */
+}
+
+/* Vacinas */
+.vaccine-item {
+    background-color: var(--background-light);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+}
+
+.veterinarian-contact {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed var(--border-color);
+}
+
+.veterinarian-contact h3 {
+    font-size: 1em;
+    color: var(--text-color-dark);
+    margin-bottom: 5px;
+}
+
+/* Seção de Compartilhamento */
+.share-section {
+    padding: 30px 20px;
+    text-align: center;
+    background-color: var(--background-dark); /* Fundo um pouco diferente */
+    border-top: 1px solid var(--border-color);
+    border-radius: 0; /* REMOVIDO: Bordas arredondadas. Agora é reto. */
+}
+
+.share-section h2 {
+    font-size: 1.3em;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.share-button {
+    background-color: var(--secondary-color);
+    color: #FFFFFF;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 30px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+.share-button i {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.share-button:hover {
+    background-color: #558B2F; /* Verde mais escuro no hover */
+    transform: translateY(-2px);
+}
+
+.share-info {
+    font-size: 0.8em;
+    color: var(--text-color-light);
+    margin-top: 15px;
+    opacity: 0.8; /* Mantendo a opacidade da informação para ser mais sutil */
+}
+
+/* Rodapé */
+.footer {
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 0.75em;
+    color: var(--text-color-light);
+    background-color: var(--background-dark);
+    border-top: 1px solid var(--border-color);
+    /* REMOVIDO: opacity: 0.2; Removido para que o rodapé apareça sólido e legível */
+}
+
+/* Oculta o scrollbar em navegadores Webkit (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+/* Oculta o scrollbar para Firefox */
+html {
+    scrollbar-width: none;
+}
+
+/* Para telas um pouco maiores (ex: tablets em modo retrato), mas ainda mobile-first */
+@media (min-width: 600px) {
+    .container {
+        margin: 40px auto; /* Centraliza mais o "cartão" */
+    }
+}
